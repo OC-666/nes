@@ -10,10 +10,10 @@ const Emulator = () => {
 
   useEffect(() => {
     const start = async () => {
-      const file = await handle!.getFile()
+      const file = await handle!.getFile() // 没有 handle 就不应打开这个页面
       await Nostalgist.nes({
         rom: file,
-        element: ref_canvas.current!,
+        element: ref_canvas.current!, // 没有 element 就说明没 mount 好
       })
     }
 
