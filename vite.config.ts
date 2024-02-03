@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/nes/',
   plugins: [react()],
+  build: {
+    outDir: 'nes',
+  }
 })

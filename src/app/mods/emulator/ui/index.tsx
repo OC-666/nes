@@ -1,35 +1,12 @@
-import { useEffect, useRef } from 'react'
-import { Nostalgist } from 'nostalgist'
-
-import { file_handle } from '../../../ss/file'
+import { Game } from '../mods/game/ui'
+import { Game_menu } from '../mods/menu/ui'
 
 export
 const Emulator = () => {
-  const ref_canvas = useRef<HTMLCanvasElement>(null)
-  const handle = file_handle.useVal()
+  console.log('rendering emulator, which shouldnt be too frequently...')
 
-  useEffect(() => {
-    const start = async () => {
-      const file = await handle!.getFile() // 没有 handle 就不应打开这个页面
-      await Nostalgist.nes({
-        rom: file,
-        element: ref_canvas.current!, // 没有 element 就说明没 mount 好
-      })
-    }
-
-    start()
-  }, [handle])
-
-  return <div>
-    <canvas
-      ref={ref_canvas}
-      style={{
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        width: '100%',
-        height: '100%',
-      }}
-    />
-  </div>
+  return <>
+    <Game />
+    <Game_menu />
+  </>
 }
