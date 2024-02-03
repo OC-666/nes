@@ -4,15 +4,18 @@ export
 const Start = () => {
   return <div
     style={{
-      height: '100vh',
       display: 'flex',
-      gap: '1em',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
     }}
   >
     <button
-      className='btn'
+      className='btn contract big'
+      style={{
+        padding: '0 1.6em',
+        letterSpacing: '.08em',
+      }}
       onClick={async () => {
         if (!window.showOpenFilePicker) {
           alert('你的浏览器不支持这功能，请试试 edge 或 firefox、chrome')
@@ -23,6 +26,15 @@ const Start = () => {
         })
         set_file_handle(handles[0])
       }}
-    >选择游戏...</button>
+    >开始游戏...</button>
+    <p
+      style={{
+        marginTop: '1.6em',
+        marginBottom: '3em',
+        color: 'rgba(var(--fc), .58)',
+        fontSize: 'var(--fs-sm)',
+        letterSpacing: '.06em',
+      }}
+    >尊重知识版权，请使用正版游戏，嘿嘿嘿</p>
   </div>
 }
