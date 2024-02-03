@@ -32,8 +32,54 @@ const Game_menu = () => {
   }, [])
 
   return <dialog
+    className='menu_container'
     ref={ref_dialog}
   >
-    dialog
+    <menu>
+      <Menu_item
+        label='继续'
+        on_click={() => {
+          todo()
+        }}
+      />
+      <Menu_item
+        label='退出全屏'
+        on_click={() => {
+          todo()
+        }}
+      />
+      <Menu_item
+        label='保存'
+        on_click={() => {
+          todo()
+        }}
+      />
+      <Menu_item
+        label='联机'
+        on_click={() => {
+          todo()
+        }}
+      />
+      <Menu_item
+        label='退出'
+        on_click={() => {
+          todo()
+        }}
+      />
+    </menu>
   </dialog>
+}
+
+interface Menu_item_props {
+  label: string
+  on_click: () => void
+}
+
+const Menu_item = ({ label, on_click }: Menu_item_props) =>
+  <li>
+    <button onClick={on_click}>{label}</button>
+  </li>
+
+function todo() {
+  alert('功能未添加，开发者正在努力')
 }

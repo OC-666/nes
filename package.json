@@ -13,7 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "last.css": "^0.2.2",
+    "last.css": "^0.2.3",
     "nostalgist": "^0.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
