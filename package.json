@@ -8,8 +8,7 @@
     "serve": "http-server ./",
     "build": "tsc && vite build",
     "prepublish": "tsc && vite build",
-    "publish": "gh-pages -d dist",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "publish": "gh-pages -d nes",
     "preview": "vite preview"
   },
   "dependencies": {

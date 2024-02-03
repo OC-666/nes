@@ -4,6 +4,9 @@ import { emulator } from '../../../ss'
 export
 const Game_menu = () => {
   const ref_dialog = useRef<HTMLDialogElement>(null)
+  const close_dialog = () => {
+    ref_dialog.current!.close()
+  }
 
   useEffect(() => {
     const listen_esc_key = (evt: KeyboardEvent) => {
@@ -19,10 +22,10 @@ const Game_menu = () => {
           break
         case 'paused':
           game.resume()
-          dialog.close()
+          close_dialog()
           break
         case 'stopped':
-          console.debug('hit game when stopped')
+          console.error('hit esc when stopped, this event should have been removed')
           break
       }
     }
@@ -35,7 +38,9 @@ const Game_menu = () => {
     className='menu_container'
     ref={ref_dialog}
   >
-    <menu>
+    <menu
+      style={{ width: 320 }}
+    >
       <Menu_item
         label='继续'
         on_click={() => {
@@ -43,8 +48,15 @@ const Game_menu = () => {
         }}
       />
       <Menu_item
-        label='退出全屏'
+        label='全屏'
         on_click={() => {
+          /**
+           * @todo
+           * 屏幕尺寸改动后，canvas 随之变化，需要重新渲染，要：
+           * 1. 保存游戏状态
+           * 2. 全屏
+           * 3. 恢复游戏状态
+           */
           todo()
         }}
       />
@@ -61,9 +73,16 @@ const Game_menu = () => {
         }}
       />
       <Menu_item
-        label='退出'
+        label='操作说明'
         on_click={() => {
           todo()
+        }}
+      />
+      <Menu_item
+        label='退出'
+        on_click={() => {
+          emulator.game!.quit()
+          close_dialog()
         }}
       />
     </menu>
