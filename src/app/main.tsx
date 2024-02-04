@@ -5,6 +5,7 @@ import './global.css'
 
 import { init_file_on_launch } from './ss/file'
 import { App } from './ui'
+import './test'
 
 init_file_on_launch()
 
