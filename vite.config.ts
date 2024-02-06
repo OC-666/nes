@@ -11,5 +11,8 @@ export default defineConfig({
   ],
   build: {
     outDir: 'nes',
-  }
+  },
+  define: {
+    __built_at: new Date().getTime(),
+  },
 })

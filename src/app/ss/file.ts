@@ -47,9 +47,11 @@ const init_file_on_launch = async () => {
 
     const res = await fetch(rom)
     // res.blob()
+    console.log(res.ok)
     return false
   }
 
   let launched = launch_by_click_file()
   launched = await launch_by_download()
+  console.log({ launched })
 }
