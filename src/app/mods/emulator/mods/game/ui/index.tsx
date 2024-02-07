@@ -11,10 +11,15 @@ const Game = () => {
   // 启动游戏
   useEffect(() => {
     ;(async function start_game() {
+      const canvas = ref_canvas.current!
+      // await canvas.requestFullscreen({ // question: 全屏时监听不到 esc keydown 事件（监听 resize 事件）
+      //   navigationUI: 'hide',
+      // })
+
       console.log('启动游戏，如果使用国内网络，这个过程会比较慢')
       const _launcher = await Nostalgist.nes({
         rom: val_rom_file!,
-        element: ref_canvas.current!, // 没有 element 就说明没 mount 好
+        element: canvas, // 没有 element 就说明没 mount 好
       })
       emulator.game = new _Game(_launcher)
     }())
