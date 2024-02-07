@@ -50,15 +50,14 @@ const init_file_on_launch = async () => {
   async function launch_by_download() {
     console.log('checking whether launching by download file')
     const params = new URLSearchParams(window.location.search)
-    const rom = params.get('rom')
+    const rom = params.get('rom') // 自动 decode
     if (!rom) return false
 
-    const name = decodeURIComponent(rom.split('/').at(-1) as string)
-    console.log('downloading rom: ', name)
-    const res = await fetch(rom)
+    const name = rom.split('/').at(-1) as string
+    console.log(`downloading rom: ${name}, at ${rom}`)
     set_rom_file({
       fileName: name,
-      fileContent: await res.blob(),
+      fileContent: await (await fetch(rom)).blob(),
     })
     return true
   }
