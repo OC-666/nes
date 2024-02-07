@@ -53,7 +53,8 @@ const init_file_on_launch = async () => {
     const rom = params.get('rom')
     if (!rom) return false
 
-    const name = rom.split('/').at(-1) as string
+    const name = decodeURIComponent(rom.split('/').at(-1) as string)
+    console.log('downloading rom: ', name)
     const res = await fetch(rom)
     set_rom_file({
       fileName: name,
