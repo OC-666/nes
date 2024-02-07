@@ -1,19 +1,19 @@
 import { useEffect, useRef } from 'react'
 import { Nostalgist } from 'nostalgist'
 
-import { file_handle } from '../../../../../ss/file'
+import { rom_file } from '../../../../../ss/rom'
 import { emulator, Game as _Game } from '../../../ss'
 
 export
 const Game = () => {
   const ref_canvas = useRef<HTMLCanvasElement>(null)
-  const handle = file_handle.useVal()
+  const val_rom_file = rom_file.useVal()
   // 启动游戏
   useEffect(() => {
     ;(async function start_game() {
-      const file = await handle!.getFile() // 没有 handle 就不应打开这个页面
+      console.log('启动游戏，如果使用国内网络，这个过程会比较慢')
       const _launcher = await Nostalgist.nes({
-        rom: file,
+        rom: val_rom_file!,
         element: ref_canvas.current!, // 没有 element 就说明没 mount 好
       })
       emulator.game = new _Game(_launcher)

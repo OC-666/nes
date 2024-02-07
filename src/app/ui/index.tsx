@@ -1,4 +1,4 @@
-import { useHas_file } from '../ss/file'
+import { useHas_file } from '../ss/rom'
 import { Emulator } from '../mods/emulator/ui'
 import { Start } from '../mods/start/ui/'
 import { Head } from '../mods/head/ui/'

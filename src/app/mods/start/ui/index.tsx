@@ -1,4 +1,4 @@
-import { set_file_handle } from '../../../ss/file'
+import { set_rom_file } from '../../../ss/rom'
 
 export
 const Start = () => {
@@ -18,13 +18,14 @@ const Start = () => {
       }}
       onClick={async () => {
         if (!window.showOpenFilePicker) {
+          console.error('如果你是开发者，应使用 127.0.0.1 访问本机服务（windows.showOpenFilePicker 只支持 https 和本机访问）')
           alert('你的浏览器不支持这功能，请试试 edge 或 firefox、chrome')
           return
         }
         const handles = await window.showOpenFilePicker({
           multiple: false,
         })
-        set_file_handle(handles[0])
+        set_rom_file(await handles[0].getFile())
       }}
     >开始游戏...</button>
     <p

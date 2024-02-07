@@ -1,5 +1,5 @@
 import { Nostalgist } from 'nostalgist'
-import { set_file_handle } from '../../../ss/file'
+import { set_rom_file } from '../../../ss/rom'
 
 type Game_status = 'running' | 'paused' | 'stopped'
 
@@ -39,7 +39,7 @@ class Game {
     this.launcher.exit({
       removeCanvas: false, // 由 Nostalgist 添加的 canvas 才需要移除，否则用户重新打开游戏，就没有 canvas 了
     })
-    set_file_handle(null)
+    set_rom_file(null)
     emulator.game = null
   }
 }

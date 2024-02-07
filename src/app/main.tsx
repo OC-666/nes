@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import 'last.css'
 import './global.css'
 
-import { init_file_on_launch } from './ss/file'
+import { init_file_on_launch } from './ss/rom'
 import { App } from './ui'
 import './test'
 
