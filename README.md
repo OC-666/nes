@@ -1,6 +1,8 @@
 # 老霸王
 红白机模拟器，[点这里开玩](https://oc-666.github.io/nes/)
 
+[试玩 Flappy Bird](https://oc-666.github.io/nes/?rom=https%3A%2F%2Fraw.githubusercontent.com%2Fretrobrews%2Fnes-games%2Fmaster%2Fflappybird.nes)
+
 ## 开发
 [TODO](https://github.com/OC-666/nes/wiki/TODO)
 
