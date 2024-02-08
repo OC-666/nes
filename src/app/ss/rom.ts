@@ -1,5 +1,5 @@
 import { State_nullable } from '../../common/state/index.ts'
-import { make_usergesture } from './usergesture.ts'
+import { check_and_make_usergesture } from './usergesture.ts'
 
 export
 const rom_file = State_nullable<ROM>(null)
@@ -37,7 +37,8 @@ const init_file_on_launch = async () => {
         const file = params.files[0]
         if (file) {
           console.log('launch by clicking file')
-          file.getFile()
+          check_and_make_usergesture()
+            .then(() => file.getFile())
             .then(file => {
               set_rom_file(file)
               res(true)
@@ -61,7 +62,7 @@ const init_file_on_launch = async () => {
 
     const name = rom.split('/').at(-1) as string
     console.log(`downloading rom: ${name}, at ${rom}`)
-    await make_usergesture()
+    await check_and_make_usergesture()
     set_rom_file({
       fileName: name,
       fileContent: await (await fetch(rom)).blob(),
