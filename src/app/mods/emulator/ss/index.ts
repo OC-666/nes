@@ -14,32 +14,52 @@ const emulator: SS_emulator = {
 
 export
 class Game {
-  private status: Game_status = 'running' // 构造器接收到的是一个 running 的 launcher
+  private _status: Game_status = 'running' // 构造器接收到的是一个 running 的 _game
+  private readonly _on_quit: (() => void)[] = []
 
   constructor(
-    private readonly launcher: Nostalgist,
-  ) {}
+    private readonly _game: Nostalgist,
+  ) {
+    const listen_resize = () => {
+      this.resize()
+    }
+    window.addEventListener('resize', listen_resize)
+    this._on_quit.push(() =>
+      window.removeEventListener('resize', listen_resize)
+    )
+  }
 
   get_status() {
-    return this.status
+    return this._status
   }
 
   resume() {
-    this.launcher.resume()
-    this.status = 'running'
+    this._game.resume()
+    this._status = 'running'
   }
 
   pause() {
-    this.launcher.pause()
-    this.status = 'paused'
+    this._game.pause()
+    this._status = 'paused'
   }
 
   quit() {
-    this.status = 'stopped'
-    this.launcher.exit({
+    this._status = 'stopped'
+    this._game.exit({
       removeCanvas: false, // 由 Nostalgist 添加的 canvas 才需要移除，否则用户重新打开游戏，就没有 canvas 了
     })
     set_rom_file(null)
     emulator.game = null
+
+    this._on_quit.forEach(cb => cb())
+  }
+
+  resize() {
+    const opts= {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }
+    console.log('resizing window', opts)
+    this._game.resize(opts)
   }
 }

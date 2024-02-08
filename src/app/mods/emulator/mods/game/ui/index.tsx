@@ -12,9 +12,11 @@ const Game = () => {
   useEffect(() => {
     ;(async function start_game() {
       const canvas = ref_canvas.current!
-      // await canvas.requestFullscreen({ // question: 全屏时监听不到 esc keydown 事件（监听 resize 事件）
-      //   navigationUI: 'hide',
-      // })
+
+      // 默认开启全屏，在设置中修改“是否全屏”
+      await canvas.requestFullscreen({ // 打开控制台的情况下，游戏内容非全屏，原因未知
+        navigationUI: 'hide',
+      })
 
       console.log('启动游戏，如果使用国内网络，这个过程会比较慢')
       const _launcher = await Nostalgist.nes({
