@@ -73,9 +73,14 @@ class Game {
 
   async fullscreen() {
     // 默认开启全屏，在设置中修改“是否全屏”
-    await this._canvas.requestFullscreen({ // 打开控制台的情况下，游戏内容非全屏，原因未知
-      navigationUI: 'hide',
-    })
+    try {
+      await this._canvas.requestFullscreen({ // 打开控制台的情况下，游戏内容非全屏，原因未知
+        navigationUI: 'hide',
+      })
+      console.log('fullscreen success')
+    } catch(err) {
+      console.error('fullscreen failed', err)
+    }
   }
   resize() {
     const opts= {

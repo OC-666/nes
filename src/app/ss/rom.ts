@@ -43,8 +43,10 @@ const init_file_on_launch = async () => {
               res(true)
             })
             .catch(rej)
-        } else
-          rej('If there\'s no file, shouldn\'t this arrow function be executed')
+        } else {
+          console.log('launch by clicking the installed app')
+          res(false)
+        }
       })
       if (!consumed)
         res(false)
