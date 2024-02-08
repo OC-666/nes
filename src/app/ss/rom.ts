@@ -8,6 +8,9 @@ export
 const useHas_file = () => rom_file.useVal() !== null
 
 export
+const get_rom_file = () => rom_file.get()
+
+export
 const set_rom_file = (handle: ROM | null) => {
   rom_file.set(() => handle)
 }

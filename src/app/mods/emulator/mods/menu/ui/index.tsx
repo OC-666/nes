@@ -27,6 +27,8 @@ const Game_menu = () => {
         case 'stopped':
           console.error('hit esc when stopped, this event should have been removed')
           break
+        default:
+          throw Error('unknown game status: ' + game.get_status())
       }
     }
 
