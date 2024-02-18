@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'last.css'
+import 'last.css/cmp/triangle.css'
+import 'last.css/cmp/x.css'
 import './global.css'
 
 import { init_file_on_launch } from './ss/rom'

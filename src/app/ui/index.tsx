@@ -3,6 +3,7 @@ import { Emulator } from '../mods/emulator/ui'
 import { Start } from '../mods/start/ui/'
 import { Head } from '../mods/head/ui/'
 import { CMP_demo } from '../mods/cmp_demo/ui'
+import { Controller_modal } from '../mods/controller/ui'
 
 const is_cmp_demo_page = new URLSearchParams(window.location.search).get('cmp_demo') !== null
 
@@ -18,6 +19,7 @@ const App = () => {
       gridTemplateRows: '1fr auto',
     }}
   >
+    <Controller_modal />
     <Head />
     {has_file
       ? <Emulator />
