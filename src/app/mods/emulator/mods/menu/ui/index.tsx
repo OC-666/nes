@@ -13,9 +13,9 @@ const Game_menu = () => {
   }
 
   useEffect(() => {
-    const listen_esc_key = (evt: KeyboardEvent) => {
-      if (evt.key != 'Escape') return
-      console.log('hitting esc')
+    const listen_bs_key = (evt: KeyboardEvent) => {
+      if (evt.key != 'Backspace') return
+      console.log('hitting backspace')
       
       const game = emulator.game!
       const dialog = ref_dialog.current!
@@ -29,15 +29,15 @@ const Game_menu = () => {
           close_dialog()
           break
         case 'stopped':
-          console.error('hit esc when stopped, this event should have been removed')
+          console.error('hit backspace when stopped, this event should have been removed already')
           break
         default:
           throw Error('unknown game status: ' + game.get_status())
       }
     }
 
-    document.addEventListener('keydown', listen_esc_key)
-    return () => document.removeEventListener('keydown', listen_esc_key)
+    document.addEventListener('keydown', listen_bs_key)
+    return () => document.removeEventListener('keydown', listen_bs_key)
   }, [])
 
   return <dialog
