@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { css_vars } from 'last.css/variables'
 import { useEffect } from 'react'
-import { state_controller_modal_shown } from '../../../ss/controller'
+import { hide_controller_modal } from '../../../ss/controller'
 
 const Box = styled.button({
   background: 'transparent',
@@ -25,7 +25,7 @@ const Close = () => {
   useEffect(() => {
     const listener = (evt: KeyboardEvent) => {
       if (evt.key != 'Escape') return
-      state_controller_modal_shown.set(() => false)
+      hide_controller_modal()
     }
     document.addEventListener('keydown', listener)
     return () => document.removeEventListener('keydown', listener)
@@ -33,7 +33,7 @@ const Close = () => {
   return <Box
     className='last x'
     onClick={() => {
-      state_controller_modal_shown.set(() => false)
+      hide_controller_modal()
     }}
   />
 }

@@ -1,11 +1,15 @@
 import { useRef, useEffect } from 'react'
 import { emulator } from '../../../ss'
+import { show_controller_modal } from '../../../../../ss/controller'
 
 export
 const Game_menu = () => {
   const ref_dialog = useRef<HTMLDialogElement>(null)
   const close_dialog = () => {
     ref_dialog.current!.close()
+  }
+  const open_dialog = () => {
+    ref_dialog.current!.showModal()
   }
 
   useEffect(() => {
@@ -65,7 +69,8 @@ const Game_menu = () => {
       <Menu_item
         label='操作说明'
         on_click={() => {
-          todo()
+          show_controller_modal(open_dialog)
+          close_dialog()
         }}
       />
       <Menu_item

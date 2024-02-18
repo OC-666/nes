@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { css_vars } from 'last.css/variables'
 
 import { Close } from './close'
-import { state_controller_modal_shown } from '../../../ss/controller'
+import { useVal_controller_modal_shown } from '../../../ss/controller'
 
 const Box = styled.div({
   position: 'fixed',
@@ -16,7 +16,7 @@ const Box = styled.div({
 
 export
 const Controller_modal = () => {
-  const shown = state_controller_modal_shown.useVal()
+  const shown = useVal_controller_modal_shown()
 
   return shown && <Box>
     <Close />
