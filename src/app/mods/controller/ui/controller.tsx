@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { css_vars } from 'last.css/variables'
 
-const unit_size = (num = 1) => css_vars.us(4 * num)
+const unit_size = (num = 1) => css_vars.us(5 * num)
 
 const btn_color = css_vars.fc(.9)
 
@@ -89,15 +89,6 @@ const D_pad = () =>
     </Box_directions>
   </Box_D_pad>
 
-const Box = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  background: css_vars.fc(.1),
-  padding: unit_size(1),
-  borderRadius: unit_size(1),
-})
-
 /* select & start */
 const Box_SS = styled.div({
   width: unit_size(5),
@@ -105,11 +96,11 @@ const Box_SS = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: unit_size(.6),
+  gap: unit_size(.388),
 })
 const Btn_SS = styled(Btn)({
-  width: unit_size(1.5),
-  height: unit_size(.75),
+  width: unit_size(1.4),
+  height: unit_size(.68),
   background: btn_color,
   borderRadius: 4,
   fontSize: css_vars.fs_xs,
@@ -117,14 +108,56 @@ const Btn_SS = styled(Btn)({
 })
 const SS = () =>
   <Box_SS>
-    <Btn_SS style={{ width: unit_size(1.5) }}>select</Btn_SS>
-    <Btn_SS style={{ width: unit_size(1.5) }}>start</Btn_SS>
+    <Btn_SS>select</Btn_SS>
+    <Btn_SS>start</Btn_SS>
   </Box_SS>
+
+/* A, B; X, Y */
+const Box_ABXY = styled.div({
+  width: unit_size(3),
+  height: unit_size(3),
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateRows: 'repeat(3, 1fr)',
+  gridTemplateAreas: '". X ." "Y . A" ". B ."',
+})
+const Box_Btn_ABXY = styled(Btn)({
+  background: btn_color,
+  color: css_vars.bc(.5),
+  borderRadius: '50%',
+  fontSize: css_vars.fs_sm,
+})
+const Btn_ABXY = ({ type }: { type: 'X' | 'Y' | 'A' | 'B' }) =>
+  <Box_Btn_ABXY
+    style={{
+      gridArea: type,
+    }}
+  >{type}</Box_Btn_ABXY>
+
+const ABXY = () =>
+  <Box_ABXY>
+    <Btn_ABXY type='X' />
+    <Btn_ABXY type='Y' />
+    <Btn_ABXY type='A' />
+    <Btn_ABXY type='B' />
+  </Box_ABXY>
+
+/* Controller */
+
+const Box = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: css_vars.fc(.1),
+  padding: `${unit_size(1.2)} ${unit_size(.8)}`,
+  borderRadius: unit_size(1),
+})
 
 export
 const Controller = () => {
   return <Box>
     <D_pad />
     <SS />
+    <ABXY />
   </Box>
 }
