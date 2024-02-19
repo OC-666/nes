@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { css_vars } from 'last.css/variables'
+import { css_vars } from 'last.css/utils'
 
 export
 const Box = styled.div({

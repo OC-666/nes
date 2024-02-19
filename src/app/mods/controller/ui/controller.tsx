@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
-import { css_vars } from 'last.css/variables'
+import { css_vars, at_light, at_dark } from 'last.css/utils'
 
 const unit_size = (num = 1) => css_vars.us(5 * num)
 
-const btn_color = css_vars.fc(.9)
+const btn_color_in_dark = css_vars.fc(.8)
+const btn_color_in_light = css_vars.fc(.06)
 
 const Btn = styled.button({
   background: 'transparent',
@@ -24,7 +25,12 @@ const Box_D_pad = styled.div({
 })
 const Box_directions = styled.div({
   borderRadius: '4px',
-  background: btn_color,
+  [at_light]: {
+    background: btn_color_in_light,
+  },
+  [at_dark]: {
+    background: btn_color_in_dark,
+  },
   position: 'absolute',
   display: 'flex',
   justifyContent: 'space-between',
@@ -33,26 +39,35 @@ const Box_directions = styled.div({
 interface Triangle_props {
   direction: 'up' | 'down' | 'left' | 'right'
 }
+
+const Box_triangle = styled.div({
+  width: unit_size(),
+  height: unit_size(),
+  display: 'grid',
+  placeItems: 'center',
+  boxSizing: 'border-box',
+  paddingBottom: unit_size(.066),
+
+  // @ts-ignore
+  '---size': css_vars.fs_xs,
+  [at_dark]: {
+    color: css_vars.bc(.5),
+  },
+  [at_light]: {
+    color: css_vars.fc(.4),
+  },
+})
+
 const Triangle = ({ direction }: Triangle_props) =>
-  <div
+  <Box_triangle
     style={{
-      width: unit_size(),
-      height: unit_size(),
-      display: 'grid',
-      placeItems: 'center',
       transform: `rotate(${
         { up: 0, right: 90, down: 180, left: 270 }[direction]
       }deg)`,
-      boxSizing: 'border-box',
-      paddingBottom: unit_size(.066),
-
-      // @ts-ignore
-      '---size': css_vars.fs_xs,
-      color: css_vars.bc(.2),
     }}
   >
     <div className='last triangle' />
-  </div>
+  </Box_triangle>
 
 const D_pad = () =>
   <Box_D_pad>
@@ -101,10 +116,16 @@ const Box_SS = styled.div({
 const Btn_SS = styled(Btn)({
   width: unit_size(1.4),
   height: unit_size(.68),
-  background: btn_color,
+  [at_light]: {
+    background: btn_color_in_light,
+    color: css_vars.fc(.6),
+  },
+  [at_dark]: {
+    background: btn_color_in_dark,
+    color: css_vars.bc(.8),
+  },
   borderRadius: 4,
   fontSize: css_vars.fs_xs,
-  color: css_vars.bc(.5),
 })
 const SS = () =>
   <Box_SS>
@@ -122,8 +143,14 @@ const Box_ABXY = styled.div({
   gridTemplateAreas: '". X ." "Y . A" ". B ."',
 })
 const Box_Btn_ABXY = styled(Btn)({
-  background: btn_color,
-  color: css_vars.bc(.5),
+  [at_light]: {
+    background: btn_color_in_light,
+    color: css_vars.fc(.5),
+  },
+  [at_dark]: {
+    background: btn_color_in_dark,
+    color: css_vars.bc(.7),
+  },
   borderRadius: '50%',
   fontSize: css_vars.fs_sm,
 })
@@ -148,7 +175,15 @@ const Box = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: css_vars.fc(.1),
+  [at_light]: {
+    backdropFilter: 'blur(4px)',
+    boxShadow: 'rgba(0, 0, 0, 0.2) 0px -10px 20px 0px inset,' +
+      'rgba(0, 0, 0, 0.28) 0px 5px 10px 0px'
+  },
+  [at_dark]: {
+    backdropFilter: 'blur(6px)',
+    border: '1px solid ' + css_vars.fc(.3),
+  },
   padding: `${unit_size(1.2)} ${unit_size(.8)}`,
   borderRadius: unit_size(1),
 })

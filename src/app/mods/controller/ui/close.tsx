@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { css_vars } from 'last.css/variables'
+import { css_vars } from 'last.css/utils'
 import { useEffect } from 'react'
 import { hide_controller_modal } from '../../../ss/controller'
 
