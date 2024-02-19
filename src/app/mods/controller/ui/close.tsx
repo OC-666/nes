@@ -4,19 +4,21 @@ import { useEffect } from 'react'
 import { hide_controller_modal } from '../../../ss/controller/modal'
 
 const Box = styled.button({
-  background: 'transparent',
   border: 'none',
   outline: 'none',
   color: 'inherit',
   cursor: 'pointer',
 
-  '---position': 'absolute',
+  position: 'absolute',
   right: css_vars.fs,
   top: css_vars.fs,
+  padding: css_vars.fs,
+  borderRadius: '50%',
 
-  opacity: .6,
+  transition: '.18s background-color',
+  backgroundColor: css_vars.bc(.188),
   ':hover': {
-    opacity: 1
+    backgroundColor: css_vars.bc(.888),
   },
 })
 
@@ -31,9 +33,10 @@ const Close = () => {
     return () => document.removeEventListener('keydown', listener)
   }, [])
   return <Box
-    className='last x'
     onClick={() => {
       hide_controller_modal()
     }}
-  />
+  >
+    <i className='last x' />
+  </Box>
 }

@@ -9,8 +9,10 @@ const Box = styled.div({
   bottom: 0,
   right: 0,
   zIndex: 10,
+
   background: css_vars.fc(.3),
   backdropFilter: 'blur(2px)',
+  animation: '.18s fade-in',
 
   display: 'flex',
   alignItems: 'center',
