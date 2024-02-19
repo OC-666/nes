@@ -2,7 +2,7 @@ import { FC, CSSProperties } from 'react'
 import Icon_github from '@mui/icons-material/GitHub'
 import Icon_help from '@mui/icons-material/Help'
 import Icon_settings from '@mui/icons-material/Settings'
-import { show_controller_modal } from '../../../ss/controller'
+import { show_controller_modal } from '../../../ss/controller/modal'
 
 interface Opts_props {
   label: string

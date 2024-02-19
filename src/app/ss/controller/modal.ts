@@ -1,4 +1,4 @@
-import { State } from '../../common/state'
+import { State } from '../../../common/state'
 
 const state_controller_modal_shown = State(false)
 let cb_on_close: null | (() => void) = null

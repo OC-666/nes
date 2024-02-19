@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { emulator } from '../../../ss'
-import { show_controller_modal } from '../../../../../ss/controller'
+import { show_controller_modal } from '../../../../../ss/controller/modal'
 
 export
 const Game_menu = () => {

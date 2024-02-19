@@ -1,5 +1,5 @@
 import { Close } from './close'
-import { useVal_controller_modal_shown } from '../../../ss/controller'
+import { useVal_controller_modal_shown } from '../../../ss/controller/modal'
 import { Box } from './box'
 import { Controller } from './controller'
 
