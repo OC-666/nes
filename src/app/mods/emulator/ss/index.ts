@@ -42,6 +42,14 @@ class Game {
     this._game = await Nostalgist.nes({
       rom: get_rom_file()!,
       element: this._canvas, // 没有 element 就说明没 mount 好
+      // resolveCoreJs: ... // 国内加速
+      // retroarchConfig: {
+      //   input_player1_a: 'x'
+      // },
+      retroarchCoreConfig: {
+        // 似乎是用于 x,y 连发 a,b
+        fceumm_turbo_enable: 'Both',
+      },
     })
     this._status = 'running'
   }
