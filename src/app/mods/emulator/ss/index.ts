@@ -48,7 +48,6 @@ class Game {
       // resolveCoreJs: ... // 国内加速
       retroarchConfig: keymap_value,
       retroarchCoreConfig: {
-        // 似乎是用于 x,y 连发 a,b
         fceumm_turbo_enable: 'Both',
       },
     })
