@@ -1,5 +1,6 @@
 import { Nostalgist } from 'nostalgist'
 import { get_rom_file, set_rom_file } from '../../../ss/rom'
+import { keymap } from '../../../ss/controller/map'
 
 type Game_status = 'before_running' | 'running' | 'paused' | 'stopped'
 
@@ -39,13 +40,13 @@ class Game {
 
   async start() {
     console.log('启动游戏，如果使用国内网络，这个过程会比较慢')
+    const keymap_value = keymap.get()
+    console.log('按键：', keymap_value)
     this._game = await Nostalgist.nes({
       rom: get_rom_file()!,
       element: this._canvas, // 没有 element 就说明没 mount 好
       // resolveCoreJs: ... // 国内加速
-      // retroarchConfig: {
-      //   input_player1_a: 'x'
-      // },
+      retroarchConfig: keymap_value,
       retroarchCoreConfig: {
         // 似乎是用于 x,y 连发 a,b
         fceumm_turbo_enable: 'Both',

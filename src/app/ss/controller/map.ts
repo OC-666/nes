@@ -1,6 +1,6 @@
 import { Localstorage_manager_json } from '../../../common/localstorage'
 
-type Key =
+type KB_key =
   'KeyQ' | 'KeyW' | 'KeyE' | 'KeyR'
   | 'KeyT' | 'KeyY'
   | 'KeyU' | 'KeyI' | 'KeyO' | 'KeyP'
@@ -10,34 +10,56 @@ type Key =
   | 'KeyZ' | 'KeyX' | 'KeyC' | 'KeyV'
   | 'KeyB' | 'KeyN' | 'KeyM'
 
+type KB_value =
+  'q' | 'w' | 'e' | 'r'
+  | 't' | 'y'
+  | 'u' | 'i' | 'o' | 'p'
+  | 'a' | 's' | 'd' | 'f'
+  | 'g' | 'h'
+  | 'j' | 'k' | 'l' | 'semicolon'
+  | 'z' | 'x' | 'c' | 'v'
+  | 'b' | 'n' | 'm'
+
+// @ts-ignore
+const kv_map: Record<KB_key, KB_value> = Object.freeze({
+  KeyQ: 'q', KeyW: 'w', KeyE: 'e', KeyR: 'r',
+  KeyT: 't', KeyY: 'y',
+  KeyU: 'u', KeyI: 'i', KeyO: 'o', KeyP: 'p',
+  KeyA: 'a', KeyS: 's', KeyD: 'd', KeyF: 'f',
+  KeyG: 'g', KeyH: 'h',
+  KeyJ: 'j', KeyK: 'k', KeyL: 'l', Semicolon: 'semicolon',
+  KeyZ: 'z', KeyX: 'x', KeyC: 'c', KeyV: 'v',
+  KeyB: 'b', KeyN: 'n', KeyM: 'm',
+})
+
 type keymap_value = {
-  input_player1_left: Key
-  input_player1_right: Key
-  input_player1_up: Key
-  input_player1_down: Key
+  input_player1_left: KB_value
+  input_player1_right: KB_value
+  input_player1_up: KB_value
+  input_player1_down: KB_value
 
-  input_player1_a: Key
-  input_player1_b: Key
-  input_player1_x: Key
-  input_player1_y: Key
+  input_player1_a: KB_value
+  input_player1_b: KB_value
+  input_player1_x: KB_value
+  input_player1_y: KB_value
 
-  input_player1_select: Key
-  input_player1_start: Key
+  input_player1_select: KB_value
+  input_player1_start: KB_value
 }
 
 const default_keymap: keymap_value = Object.freeze({
-  input_player1_left: 'KeyS',
-  input_player1_right: 'KeyF',
-  input_player1_up: 'KeyE',
-  input_player1_down: 'KeyD',
+  input_player1_left: 's',
+  input_player1_right: 'f',
+  input_player1_up: 'e',
+  input_player1_down: 'd',
 
-  input_player1_a: 'KeyK',
-  input_player1_b: 'KeyJ',
-  input_player1_x: 'KeyI',
-  input_player1_y: 'KeyU',
+  input_player1_a: 'k',
+  input_player1_b: 'j',
+  input_player1_x: 'i',
+  input_player1_y: 'u',
 
-  input_player1_select: 'KeyG',
-  input_player1_start: 'KeyH',
+  input_player1_select: 'g',
+  input_player1_start: 'h',
 })
 
 export
