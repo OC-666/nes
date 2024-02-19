@@ -16,7 +16,7 @@ const Btn_SS = styled(Btn)({
   height: unit_size(.68),
   [at_light]: {
     background: btn_color_in_light,
-    color: css_vars.fc(.6),
+    color: css_vars.fc(.8),
   },
   [at_dark]: {
     background: btn_color_in_dark,
@@ -30,5 +30,7 @@ export
 const SS = () =>
   <Box_SS>
     <Btn_SS>select</Btn_SS>
-    <Btn_SS>start</Btn_SS>
+    <Btn_SS
+      style={{ letterSpacing: '.04em' }}
+    >start</Btn_SS>
   </Box_SS>

@@ -14,13 +14,12 @@ const Box_triangle = styled.div({
   boxSizing: 'border-box',
   paddingBottom: unit_size(.066),
 
-  // @ts-ignore
   '---size': css_vars.fs_xs,
   [at_dark]: {
     color: css_vars.bc(.5),
   },
   [at_light]: {
-    color: css_vars.fc(.4),
+    color: css_vars.fc(.6),
   },
 })
 

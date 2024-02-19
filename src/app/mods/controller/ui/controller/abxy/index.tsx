@@ -14,7 +14,7 @@ const Box_ABXY = styled.div({
 const Box_Btn_ABXY = styled(Btn)({
   [at_light]: {
     background: btn_color_in_light,
-    color: css_vars.fc(.5),
+    color: css_vars.fc(.7),
   },
   [at_dark]: {
     background: btn_color_in_dark,
