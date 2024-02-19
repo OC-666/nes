@@ -10,4 +10,9 @@ const Box = styled.div({
   right: 0,
   zIndex: 10,
   background: css_vars.bc(.88),
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
 })
