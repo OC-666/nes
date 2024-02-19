@@ -3,6 +3,8 @@ import { css_vars } from 'last.css/variables'
 
 const unit_size = (num = 1) => css_vars.us(4 * num)
 
+const btn_color = css_vars.fc(.9)
+
 const Btn = styled.button({
   background: 'transparent',
   border: 'none',
@@ -13,15 +15,16 @@ const Btn = styled.button({
   height: unit_size(),
 })
 
+/* direction pad */
+
 const Box_D_pad = styled.div({
-  flex: 1,
   position: 'relative',
   width: unit_size(3),
   height: unit_size(3),
 })
 const Box_directions = styled.div({
   borderRadius: '4px',
-  background: css_vars.fc(.9),
+  background: btn_color,
   position: 'absolute',
   display: 'flex',
   justifyContent: 'space-between',
@@ -45,7 +48,7 @@ const Triangle = ({ direction }: Triangle_props) =>
 
       // @ts-ignore
       '---size': css_vars.fs_xs,
-      color: css_vars.bc(.1),
+      color: css_vars.bc(.2),
     }}
   >
     <div className='last triangle' />
@@ -95,9 +98,33 @@ const Box = styled.div({
   borderRadius: unit_size(1),
 })
 
+/* select & start */
+const Box_SS = styled.div({
+  width: unit_size(5),
+  height: unit_size(3),
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: unit_size(.6),
+})
+const Btn_SS = styled(Btn)({
+  width: unit_size(1.5),
+  height: unit_size(.75),
+  background: btn_color,
+  borderRadius: 4,
+  fontSize: css_vars.fs_xs,
+  color: css_vars.bc(.5),
+})
+const SS = () =>
+  <Box_SS>
+    <Btn_SS style={{ width: unit_size(1.5) }}>select</Btn_SS>
+    <Btn_SS style={{ width: unit_size(1.5) }}>start</Btn_SS>
+  </Box_SS>
+
 export
 const Controller = () => {
   return <Box>
     <D_pad />
+    <SS />
   </Box>
 }

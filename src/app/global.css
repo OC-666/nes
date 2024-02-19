@@ -1,3 +1,6 @@
 :root {
   font-family: 'Microsoft Yahei';
 }
+* {
+  box-sizing: border-box;
+}
