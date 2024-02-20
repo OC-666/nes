@@ -29,12 +29,21 @@ const SVG_top_left = () =>
     <Path_top_left />
   </Box_svg>
 
-// @ts-ignore
 const Path_top_right = Path(`
   M 0 20
   L 10 0
   H 30
 `)
+export
+const SVG_top_right = () =>
+  <Box_svg viewBox="0 0 30 20" style={{ /* 用 svg 画拐弯的线 */
+    width: unit_size(.75),
+    height: unit_size(.5),
+    bottom: '100%',
+    left: '50%',
+  }}>
+    <Path_top_right />
+  </Box_svg>
 
 const Path_bottom_left = Path(`
   M 30 0
@@ -57,11 +66,21 @@ const Path_x = Path(`
   L 20 1
 `)
 export
-const SVG_x = () =>
+const SVG_x_left = () =>
   <Box_svg viewBox="0 0 20 1" style={{
     width: unit_size(.5),
     height: 1,
     right: '100%',
+    bottom: '50%',
+  }}>
+    <Path_x />
+  </Box_svg>
+export
+const SVG_x_right = () =>
+  <Box_svg viewBox="0 0 20 1" style={{
+    width: unit_size(.5),
+    height: 1,
+    left: '100%',
     bottom: '50%',
   }}>
     <Path_x />
