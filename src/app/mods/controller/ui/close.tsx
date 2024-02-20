@@ -26,7 +26,7 @@ export
 const Close = () => {
   useEffect(() => {
     const listener = (evt: KeyboardEvent) => {
-      if (evt.key != 'Backspace') return
+      if (evt.key != 'Control') return
       hide_controller_modal()
     }
     document.addEventListener('keydown', listener)
