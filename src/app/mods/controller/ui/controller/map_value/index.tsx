@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import styled from '@emotion/styled'
 
 import { KB_value } from '../../../../../ss/controller/map'
 import { Icon_keyboard } from './keyboard'
@@ -8,13 +7,6 @@ import { css_vars } from 'last.css/utils'
 interface Map_value_props {
   value: KB_value
 }
-
-export
-const Box_map_value = styled.div({
-  color: css_vars.fc(.3),
-  position: 'absolute',
-  zIndex: 1,
-})
 
 export
 const Map_value: FC<Map_value_props> = ({ value }) =>

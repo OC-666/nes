@@ -4,7 +4,8 @@ import { at_light, at_dark } from 'last.css/utils'
 
 import { type keymap_value } from '../../../../../ss/controller/map'
 import { Btn, unit_size, btn_color_in_light, btn_color_in_dark } from '../common'
-import { Box_map_value, Map_value } from '../map_value'
+import { Map_value } from '../map_value'
+import { SVG_top_left, SVG_bottom_left } from '../map_value/path'
 import { Triangle } from './triangle'
 
 const Box_D_pad = styled.div({
@@ -44,43 +45,27 @@ const D_pad: FC<D_pad_props> = props =>
     >
       <Btn>
         <Triangle direction='up' />
-        <Box_map_value /* 盛放 up 的键位 */
-          style={{
-            bottom: '100%',
-            left: 0,
-            width: '100%',
-            height: 1,
-          }}
-        >
-          <svg viewBox="0 0 30 20" style={{ /* 用 svg 画拐弯的线 */
-            width: unit_size(.75),
-            height: unit_size(.5),
-            position: 'absolute',
-            bottom: 0,
-            left: '50%',
-          }}>
-            <path
-              stroke='currentColor' fill='none'
-              d={`
-                M 0 20
-                L 10 0
-                H 30
-              `}
-            />
-          </svg>
-          <div style={{ /* 此 div 给 up 的键位提供 绝对定位 */ 
-            position: 'absolute',
-            left: '125%',
-            bottom: unit_size(.5),
-            transform: 'translateY(50%)',
-          }}>
-            <Map_value value={props.keymap_value.input_player1_up} />
-          </div>
-        </Box_map_value>
+        <SVG_top_left />
+        <div style={{ /* 此 div 给 up 的键位提供 绝对定位 */ 
+          position: 'absolute',
+          right: '125%',
+          bottom: '150%',
+          transform: 'translateY(50%)',
+        }}>
+          <Map_value value={props.keymap_value.input_player1_up} />
+        </div>
       </Btn>
       <Btn>
         <Triangle direction='down' />
-        <Map_value value={props.keymap_value.input_player1_down} />
+        <SVG_bottom_left />
+        <div style={{
+          position: 'absolute',
+          right: '125%',
+          top: '150%',
+          transform: 'translateY(-50%)',
+        }}>
+          <Map_value value={props.keymap_value.input_player1_down} />
+        </div>
       </Btn>
     </Box_directions>
     <Box_directions /*盛放 left 和 right 两个 */
