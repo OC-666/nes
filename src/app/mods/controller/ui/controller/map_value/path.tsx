@@ -82,3 +82,18 @@ const SVG_bottom_right = () =>
   }}>
     <Path_bottom_right />
   </Box_svg>
+
+const Path_y = Path(`
+  M 1 0
+  L 1 20
+`)
+export
+const SVG_y = () =>
+  <Box_svg viewBox="0 0 1 20" style={{
+    width: 1,
+    height: unit_size(.5),
+    bottom: '100%',
+    left: '50%',
+  }}>
+    <Path_y />
+  </Box_svg>
