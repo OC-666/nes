@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { KB_value } from '../../../../../ss/controller/map'
+import { KB_value, key_value_label_map } from '../../../../../ss/controller/map'
 import { Icon_keyboard } from './keyboard'
 import { css_vars } from 'last.css/utils'
 
@@ -26,7 +26,6 @@ const Map_value: FC<Map_value_props> = ({ value }) =>
       <Icon_keyboard width={14} height={14} />
     </div>
     <div style={{
-      textTransform: value.length === 1 && 'uppercase' || 'none',
       fontFamily: 'Times New Roman'
-    }}>{value}</div>
+    }}>{key_value_label_map.value(value).label}</div>
   </div>
