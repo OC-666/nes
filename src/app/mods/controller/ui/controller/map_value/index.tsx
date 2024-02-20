@@ -12,6 +12,8 @@ interface Map_value_props {
 export
 const Box_map_value = styled.div({
   color: css_vars.fc(.3),
+  position: 'absolute',
+  zIndex: 1,
 })
 
 export

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from '@emotion/styled'
-import { at_light, at_dark, css_vars } from 'last.css/utils'
+import { at_light, at_dark } from 'last.css/utils'
 
 import { type keymap_value } from '../../../../../ss/controller/map'
 import { Btn, unit_size, btn_color_in_light, btn_color_in_dark } from '../common'
@@ -33,7 +33,7 @@ interface D_pad_props {
 export
 const D_pad: FC<D_pad_props> = props =>
   <Box_D_pad>
-    <Box_directions
+    <Box_directions /* 盛放 up 和 down 两个 */
       style={{
         flexDirection: 'column',
         width: unit_size(),
@@ -44,17 +44,15 @@ const D_pad: FC<D_pad_props> = props =>
     >
       <Btn>
         <Triangle direction='up' />
-        <Box_map_value
+        <Box_map_value /* 盛放 up 的键位 */
           style={{
-            position: 'absolute',
-            zIndex: 1,
             bottom: '100%',
             left: 0,
             width: '100%',
             height: 1,
           }}
         >
-          <svg viewBox="0 0 30 20" style={{
+          <svg viewBox="0 0 30 20" style={{ /* 用 svg 画拐弯的线 */
             width: unit_size(.75),
             height: unit_size(.5),
             position: 'absolute',
@@ -62,9 +60,7 @@ const D_pad: FC<D_pad_props> = props =>
             left: '50%',
           }}>
             <path
-              stroke='currentColor'
-              fill='none'
-              strokeWidth={1}
+              stroke='currentColor' fill='none'
               d={`
                 M 0 20
                 L 10 0
@@ -72,7 +68,7 @@ const D_pad: FC<D_pad_props> = props =>
               `}
             />
           </svg>
-          <div style={{
+          <div style={{ /* 此 div 给 up 的键位提供 绝对定位 */ 
             position: 'absolute',
             left: '125%',
             bottom: unit_size(.5),
@@ -87,7 +83,7 @@ const D_pad: FC<D_pad_props> = props =>
         <Map_value value={props.keymap_value.input_player1_down} />
       </Btn>
     </Box_directions>
-    <Box_directions
+    <Box_directions /*盛放 left 和 right 两个 */
       style={{
         width: unit_size(3),
         height: unit_size(),
