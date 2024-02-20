@@ -27,5 +27,6 @@ const Map_value: FC<Map_value_props> = ({ value }) =>
     </div>
     <div style={{
       textTransform: value.length === 1 && 'uppercase' || 'none',
+      fontFamily: 'Times New Roman'
     }}>{value}</div>
   </div>
