@@ -67,6 +67,9 @@ class Localstorage_manager_json<Value> extends Localstorage_manager<Value> {
   parse(raw: string) {
     return JSON.parse(raw)
   }
+  get_clone() {
+    return JSON.parse(JSON.stringify(this.get()))
+  }
   stringify(value: Value) {
     return JSON.stringify(value)
   }

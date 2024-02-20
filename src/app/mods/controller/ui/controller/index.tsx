@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import { css_vars, at_light, at_dark } from 'last.css/utils'
 
+import { keymap } from '../../../../ss/controller/map'
 import { unit_size } from './common'
 import { D_pad } from './d-pad'
 import { SS } from './ss'
@@ -27,9 +29,14 @@ const Box = styled.div({
 
 export
 const Controller = () => {
+  const [keymap_value] = useState(() => {
+    const result = keymap.get_clone()
+    console.log('keymap', result)
+    return result
+  })
   return <Box>
-    <D_pad />
-    <SS />
-    <ABXY />
+    <D_pad keymap_value={keymap_value} />
+    <SS keymap_value={keymap_value} />
+    <ABXY keymap_value={keymap_value} />
   </Box>
 }

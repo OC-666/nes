@@ -10,6 +10,7 @@ type KB_key =
   | 'KeyZ' | 'KeyX' | 'KeyC' | 'KeyV'
   | 'KeyB' | 'KeyN' | 'KeyM'
 
+export
 type KB_value =
   'q' | 'w' | 'e' | 'r'
   | 't' | 'y'
@@ -32,6 +33,7 @@ const kv_map: Record<KB_key, KB_value> = Object.freeze({
   KeyB: 'b', KeyN: 'n', KeyM: 'm',
 })
 
+export
 type keymap_value = {
   input_player1_left: KB_value
   input_player1_right: KB_value

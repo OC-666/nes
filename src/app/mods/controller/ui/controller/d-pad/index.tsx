@@ -1,7 +1,10 @@
+import { FC } from 'react'
 import styled from '@emotion/styled'
-import { at_light, at_dark } from 'last.css/utils'
+import { at_light, at_dark, css_vars } from 'last.css/utils'
 
+import { type keymap_value } from '../../../../../ss/controller/map'
 import { Btn, unit_size, btn_color_in_light, btn_color_in_dark } from '../common'
+import { Box_map_value, Map_value } from '../map_value'
 import { Triangle } from './triangle'
 
 const Box_D_pad = styled.div({
@@ -23,8 +26,12 @@ const Box_directions = styled.div({
   justifyContent: 'space-between',
 })
 
+interface D_pad_props {
+  keymap_value: keymap_value
+}
+
 export
-const D_pad = () =>
+const D_pad: FC<D_pad_props> = props =>
   <Box_D_pad>
     <Box_directions
       style={{
@@ -37,9 +44,47 @@ const D_pad = () =>
     >
       <Btn>
         <Triangle direction='up' />
+        <Box_map_value
+          style={{
+            position: 'absolute',
+            zIndex: 1,
+            bottom: '100%',
+            left: 0,
+            width: '100%',
+            height: 1,
+          }}
+        >
+          <svg viewBox="0 0 30 20" style={{
+            width: unit_size(.75),
+            height: unit_size(.5),
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+          }}>
+            <path
+              stroke='currentColor'
+              fill='none'
+              strokeWidth={1}
+              d={`
+                M 0 20
+                L 10 0
+                H 30
+              `}
+            />
+          </svg>
+          <div style={{
+            position: 'absolute',
+            left: '125%',
+            bottom: unit_size(.5),
+            transform: 'translateY(50%)',
+          }}>
+            <Map_value value={props.keymap_value.input_player1_up} />
+          </div>
+        </Box_map_value>
       </Btn>
       <Btn>
         <Triangle direction='down' />
+        <Map_value value={props.keymap_value.input_player1_down} />
       </Btn>
     </Box_directions>
     <Box_directions

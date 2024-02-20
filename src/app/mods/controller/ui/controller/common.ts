@@ -19,4 +19,6 @@ const Btn = styled.button({
   padding: '0',
   width: unit_size(),
   height: unit_size(),
+
+  position: 'relative',
 })
