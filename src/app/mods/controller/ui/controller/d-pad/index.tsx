@@ -5,7 +5,7 @@ import { at_light, at_dark } from 'last.css/utils'
 import { type keymap_value } from '../../../../../ss/controller/map'
 import { Btn, unit_size, btn_color_in_light, btn_color_in_dark } from '../common'
 import { Map_value } from '../map_value'
-import { SVG_top_left, SVG_bottom_left } from '../map_value/path'
+import { SVG_top_left, SVG_bottom_left, SVG_x, SVG_bottom_right } from '../map_value/path'
 import { Triangle } from './triangle'
 
 const Box_D_pad = styled.div({
@@ -78,9 +78,27 @@ const D_pad: FC<D_pad_props> = props =>
     >
       <Btn>
         <Triangle direction='left' />
+        <SVG_x />
+        <div style={{
+          position: 'absolute',
+          right: '150%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        }}>
+          <Map_value value={props.keymap_value.input_player1_left} />
+        </div>
       </Btn>
       <Btn>
         <Triangle direction='right' />
+        <SVG_bottom_right />
+        <div style={{
+          position: 'absolute',
+          left: '125%',
+          top: '150%',
+          transform: 'translateY(-50%)',
+        }}>
+          <Map_value value={props.keymap_value.input_player1_left} />
+        </div>
       </Btn>
     </Box_directions>
   </Box_D_pad>
