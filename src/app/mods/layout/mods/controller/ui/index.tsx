@@ -1,13 +1,13 @@
 import { Controller } from './controller'
-import { Modal } from '../../../../common/cmp/modal'
+import { Modal } from '../../../../../../common/cmp/modal'
 import {
   useVal_controller_modal_shown,
   show_controller_modal,
   hide_controller_modal,
-} from '../../../ss/controller/modal'
+} from '../../../../../ss/controller/modal'
 
 export
-const Controller_modal = () => {
+const Modal_controller = () => {
   const shown = useVal_controller_modal_shown()
 
   return <Modal

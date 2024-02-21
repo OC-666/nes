@@ -1,29 +1,19 @@
-import { useHas_file } from '../ss/rom'
-import { Emulator } from '../mods/emulator/ui'
-import { Start } from '../mods/start/ui/'
-import { Head } from '../mods/head/ui/'
-import { CMP_demo } from '../mods/cmp_demo/ui'
-import { Controller_modal } from '../mods/controller/ui'
+import { Route } from 'wouter'
 
-const is_cmp_demo_page = new URLSearchParams(window.location.search).get('cmp_demo') !== null
+import { pages } from '../ss/pages'
+import { Layout } from '../mods/layout/ui'
+
+import { Page_home } from '../mods/home/ui'
+import { Page_emulator } from '../mods/emulator/ui'
 
 export
 const App = () => {
-  const has_file = useHas_file()
-
-  return is_cmp_demo_page && <CMP_demo />
-  || <div
-    style={{
-      display: 'grid',
-      height: '100vh',
-      gridTemplateRows: '1fr auto',
-    }}
-  >
-    <Controller_modal />
-    <Head />
-    {has_file
-      ? <Emulator />
-      : <Start />
-    }
-  </div>
+  return <Layout>
+    <Route path={pages.home.path}>
+      <Page_home />
+    </Route>
+    <Route path={pages.emulator.path}>
+      <Page_emulator />
+    </Route>
+  </Layout>
 }

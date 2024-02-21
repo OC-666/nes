@@ -4,13 +4,14 @@ import Icon_help from '@mui/icons-material/Help'
 import Icon_settings from '@mui/icons-material/Settings'
 import { show_controller_modal } from '../../../ss/controller/modal'
 
-interface Opts_props {
+interface Props_opts {
   label: string
   Icon: FC<{ style: CSSProperties }>
   target?: '_blank'
   href: string | (() => void)
 }
-const Opts = (props: Opts_props) => {
+
+const Opts = (props: Props_opts) => {
   const is_link = typeof props.href == 'string'
   const href = props.href as string
   const on_click = props.href as () => void

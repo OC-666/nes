@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { css_vars, at_light, at_dark } from 'last.css/utils'
 
-import { type keymap_value } from '../../../../../ss/controller/map'
+import { type keymap_value } from '../../../../../../../ss/controller/map'
 import { SVG_bottom_left, SVG_top_right, SVG_x_right, SVG_bottom_right } from '../map_value/path'
 import { Map_value } from '../map_value'
 import { Btn, unit_size, btn_color_in_light, btn_color_in_dark } from '../common'

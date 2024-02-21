@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import { css_vars, at_light, at_dark } from 'last.css/utils'
 
-import { keymap } from '../../../../ss/controller/map'
+import { keymap } from '../../../../../../ss/controller/map'
 import { unit_size } from './common'
 import { D_pad } from './d-pad'
 import { SS } from './ss'

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { KB_value, key_value_label_map } from '../../../../../ss/controller/map'
+import { KB_value, key_value_label_map } from '../../../../../../../ss/controller/map'
 import { Icon_keyboard } from './keyboard'
 import { css_vars } from 'last.css/utils'
 

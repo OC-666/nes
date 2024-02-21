@@ -5,7 +5,7 @@ export
 const rom_file = State_nullable<ROM>(null)
 
 export
-const useHas_file = () => rom_file.useVal() !== null
+const useHas_rom = () => rom_file.useVal() !== null
 
 export
 const get_rom_file = () => rom_file.get()
