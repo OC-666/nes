@@ -3,6 +3,7 @@ import Icon_github from '@mui/icons-material/GitHub'
 import Icon_help from '@mui/icons-material/Help'
 import Icon_settings from '@mui/icons-material/Settings'
 import { show_controller_modal } from '../../../ss/controller/modal'
+import { pages } from '../../../ss/pages'
 
 interface Props_opts {
   label: string
@@ -24,7 +25,10 @@ const Opts = (props: Props_opts) => {
       color: 'rgba(var(--fc), 1)',
     }}
     href={is_link ? href : '#'}
-    onClick={is_link ? undefined : on_click}
+    onClick={is_link ? undefined : evt => {
+      on_click()
+      evt.preventDefault()
+    }}
   >
     <Icon style={{opacity: .8}} />
     <span style={{ marginLeft: '.5em', display: 'block' }}>{props.label}</span>
@@ -33,6 +37,7 @@ const Opts = (props: Props_opts) => {
 
 export
 const Head = () => {
+  const nav_settings = pages.settings.useNav()
   return <div
     style={{
       display: 'flex',
@@ -80,7 +85,9 @@ const Head = () => {
         <Opts
           label='设置'
           Icon={Icon_settings}
-          href=''
+          href={() => {
+            nav_settings()
+          }}
         />
         <Opts
           label='Github'

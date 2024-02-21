@@ -31,7 +31,7 @@ export
 const Controller = () => {
   const [keymap_value] = useState(() => {
     const result = keymap.get_clone()
-    console.log('keymap', result)
+    console.log('current keymap: ', result)
     return result
   })
   return <Box>

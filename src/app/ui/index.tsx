@@ -5,6 +5,7 @@ import { Layout } from '../mods/layout/ui'
 
 import { Page_home } from '../mods/home/ui'
 import { Page_emulator } from '../mods/emulator/ui'
+import { Page_settings } from '../mods/settings/ui'
 
 export
 const App = () => {
@@ -14,6 +15,9 @@ const App = () => {
     </Route>
     <Route path={pages.emulator.path}>
       <Page_emulator />
+    </Route>
+    <Route path={pages.settings.path}>
+      <Page_settings />
     </Route>
   </Layout>
 }

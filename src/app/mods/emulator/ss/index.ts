@@ -39,9 +39,9 @@ class Game {
   }
 
   async start() {
-    console.log('启动游戏，如果使用国内网络，这个过程会比较慢')
     const keymap_value = keymap.get()
-    console.log('按键：', keymap_value)
+    console.log('starting...')
+    console.log('keymap', keymap_value)
     this._game = await Nostalgist.nes({
       rom: get_rom_file()!,
       element: this._canvas, // 没有 element 就说明没 mount 好
