@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { css_vars } from 'last.css/utils'
-import { useEffect } from 'react'
 import { hide_controller_modal } from '../../../ss/controller/modal'
 
 const Box = styled.button({
@@ -24,14 +23,14 @@ const Box = styled.button({
 
 export
 const Close = () => {
-  useEffect(() => {
-    const listener = (evt: KeyboardEvent) => {
-      if (evt.key != 'Control') return
-      hide_controller_modal()
-    }
-    document.addEventListener('keydown', listener)
-    return () => document.removeEventListener('keydown', listener)
-  }, [])
+  // useEffect(() => {
+  //   const listener = (evt: KeyboardEvent) => {
+  //     if (evt.key != 'Control') return
+  //     hide_controller_modal()
+  //   }
+  //   document.addEventListener('keydown', listener)
+  //   return () => document.removeEventListener('keydown', listener)
+  // }, [])
   return <Box
     onClick={() => {
       hide_controller_modal()
