@@ -6,12 +6,14 @@
 + [x] 点开（[含 rom 下载链接的链接](https://oc-666.github.io/nes/?rom=https%3A%2F%2Fraw.githubusercontent.com%2Fretrobrews%2Fnes-games%2Fmaster%2Fflappybird.nes)、本地 rom 文件）即玩
 + [x] 支持键盘和手柄
 + [ ] 按键映射
-+ [ ] 回溯（不小心死了？回退到 10 秒前！）
++ [x] 回溯（不小心死了？回退到 10 秒前！）
 + [ ] 一次安装、不怕断网
 + [ ] 存档
 + [ ] 联机
 
-[TODO](https://github.com/OC-666/nes/wiki/TODO)
+### 链接
++ [快捷键说明](./docs/shortcut_key.md)
++ [TODO](https://github.com/OC-666/nes/wiki/TODO)
 
 ### 本地开发
 > 现有未知的问题导致不能使用 `npm run dev`，每次修改代码后，要手动 `npm run build`

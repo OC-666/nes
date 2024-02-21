@@ -46,7 +46,14 @@ class Game {
       rom: get_rom_file()!,
       element: this._canvas, // 没有 element 就说明没 mount 好
       // resolveCoreJs: ... // 国内加速
-      retroarchConfig: keymap_value,
+      retroarchConfig: {
+        rewind_enable: true, // 回溯
+
+        // 按键映射
+        ...keymap_value,
+        input_toggle_fast_forward: 'num6', // https://github.com/libretro/RetroArch/blob/master/retroarch.cfg#L577
+        input_rewind: 'backspace', // https://github.com/libretro/RetroArch/blob/master/retroarch.cfg#L593
+      },
       retroarchCoreConfig: {
         fceumm_turbo_enable: 'Both',
       },

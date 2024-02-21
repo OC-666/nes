@@ -26,8 +26,8 @@ const Close = ({ hide }: { hide: () => void }) => {
   useEffect(() => {
     // 此处注意：如果同时存在多个 modal，这多个 modal 都能接收到此事件
     const listener = (evt: KeyboardEvent) => {
-      if (evt.key != 'Backspace') return
-      hide()
+      if (evt.key == 'Backspace')
+        hide()
     }
     document.addEventListener('keydown', listener)
     return () => document.removeEventListener('keydown', listener)

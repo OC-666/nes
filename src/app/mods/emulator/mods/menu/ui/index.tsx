@@ -13,12 +13,13 @@ const Game_menu = () => {
   }
 
   useEffect(() => {
-    const listen_bs_key = (evt: KeyboardEvent) => {
-      if (evt.key != 'Control') return
-      console.log('hitting Control')
+    const listen_menu_key = (evt: KeyboardEvent) => {
+      if (evt.code != 'Space') return
+      console.log('hitting Space')
       
       const game = emulator.game!
       const dialog = ref_dialog.current!
+
       switch(game.get_status()) {
         case 'running':
           game.pause()
@@ -36,8 +37,8 @@ const Game_menu = () => {
       }
     }
 
-    document.addEventListener('keydown', listen_bs_key)
-    return () => document.removeEventListener('keydown', listen_bs_key)
+    document.addEventListener('keydown', listen_menu_key)
+    return () => document.removeEventListener('keydown', listen_menu_key)
   }, [])
 
   return <dialog
