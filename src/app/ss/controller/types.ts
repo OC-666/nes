@@ -1,14 +1,14 @@
-
-// 可用的键：https://github.com/libretro/RetroArch/blob/master/retroarch.cfg#L445
+// 可用的键：https://github.com/libretro/RetroArch/blob/master/retroarch.cfg#L454
 
 export
 type KB_key =
   'KeyQ' | 'KeyW' | 'KeyE' | 'KeyR'
   | 'KeyT' | 'KeyY'
   | 'KeyU' | 'KeyI' | 'KeyO' | 'KeyP'
+  | 'BracketLeft' | 'BracketRight'
   | 'KeyA' | 'KeyS' | 'KeyD' | 'KeyF'
   | 'KeyG' | 'KeyH'
-  | 'KeyJ' | 'KeyK' | 'KeyL' | 'Semicolon' 
+  | 'KeyJ' | 'KeyK' | 'KeyL' | 'Semicolon' | 'Quote'
   | 'KeyZ' | 'KeyX' | 'KeyC' | 'KeyV'
   | 'KeyB' | 'KeyN' | 'KeyM' | 'Period'
 
@@ -25,9 +25,10 @@ type KB_value =
   'q' | 'w' | 'e' | 'r'
   | 't' | 'y'
   | 'u' | 'i' | 'o' | 'p'
+  | 'leftbracket' | 'rightbracket'
   | 'a' | 's' | 'd' | 'f'
   | 'g' | 'h'
-  | 'j' | 'k' | 'l' | 'semicolon'
+  | 'j' | 'k' | 'l' | 'semicolon' | 'quote'
   | 'z' | 'x' | 'c' | 'v'
   | 'b' | 'n' | 'm' | 'period'
 
@@ -44,9 +45,10 @@ type KB_label =
   'Q' | 'W' | 'E' | 'R'
   | 'T' | 'Y'
   | 'U' | 'I' | 'O' | 'P'
+  | '[' | ']'
   | 'A' | 'S' | 'D' | 'F'
   | 'G' | 'H'
-  | 'J' | 'K' | 'L' | ';'
+  | 'J' | 'K' | 'L' | ';' | '"'
   | 'Z' | 'X' | 'C' | 'V'
   | 'B' | 'N' | 'M' | '.'
 
