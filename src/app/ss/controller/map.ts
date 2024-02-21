@@ -1,41 +1,5 @@
 import { Localstorage_manager_json } from '../../../common/localstorage'
-
-// 可用的键：https://github.com/libretro/RetroArch/blob/master/retroarch.cfg#L445
-
-type KB_key =
-  'KeyQ' | 'KeyW' | 'KeyE' | 'KeyR'
-  | 'KeyT' | 'KeyY'
-  | 'KeyU' | 'KeyI' | 'KeyO' | 'KeyP'
-  | 'KeyA' | 'KeyS' | 'KeyD' | 'KeyF'
-  | 'KeyG' | 'KeyH'
-  | 'KeyJ' | 'KeyK' | 'KeyL' | 'Semicolon' 
-  | 'KeyZ' | 'KeyX' | 'KeyC' | 'KeyV'
-  | 'KeyB' | 'KeyN' | 'KeyM' | 'Period'
-  | 'ArrowLeft' | 'ArrowRight' | 'ArrowUp' | 'ArrowDown'
-
-export
-type KB_value =
-  'q' | 'w' | 'e' | 'r'
-  | 't' | 'y'
-  | 'u' | 'i' | 'o' | 'p'
-  | 'a' | 's' | 'd' | 'f'
-  | 'g' | 'h'
-  | 'j' | 'k' | 'l' | 'semicolon'
-  | 'z' | 'x' | 'c' | 'v'
-  | 'b' | 'n' | 'm' | 'period'
-  | 'left' | 'right' | 'up' | 'down'
-
-export
-type KB_label =
-  'Q' | 'W' | 'E' | 'R'
-  | 'T' | 'Y'
-  | 'U' | 'I' | 'O' | 'P'
-  | 'A' | 'S' | 'D' | 'F'
-  | 'G' | 'H'
-  | 'J' | 'K' | 'L' | ';'
-  | 'Z' | 'X' | 'C' | 'V'
-  | 'B' | 'N' | 'M' | '.'
-  | '←' | '→' | '↑' | '↓'
+import { KB_key, KB_label, KB_value } from './types'
 
 export
 const key_value_label_map = new class Key_value_label_map {
@@ -48,8 +12,16 @@ const key_value_label_map = new class Key_value_label_map {
     ['KeyJ', 'j', 'J'], ['KeyK', 'k', 'K'], ['KeyL', 'l', 'L'], ['Semicolon', 'semicolon', ';'],
     ['KeyZ', 'z', 'Z'], ['KeyX', 'x', 'X'], ['KeyC', 'c', 'C'], ['KeyV', 'v', 'V'],
     ['KeyB', 'b', 'B'], ['KeyN', 'n', 'N'], ['KeyM', 'm', 'M'], ['Period', 'period', '.'],
+
+    ['Enter', 'enter', '回车'], ['ShiftRight', 'rshift', '右 shift'],
+
     ['ArrowLeft', 'left', '←'], ['ArrowRight', 'right', '→'],
     ['ArrowUp', 'up', '↑'], ['ArrowDown', 'down', '↓'],
+
+    ['Numpad7', 'keypad7', '小键盘 7'], ['Numpad8', 'keypad8', '小键盘 8'], ['Numpad9', 'keypad9', '小键盘 9'],
+    ['Numpad4', 'keypad4', '小键盘 4'], ['Numpad5', 'keypad5', '小键盘 5'], ['Numpad6', 'keypad6', '小键盘 6'],
+    ['Numpad1', 'keypad1', '小键盘 1'], ['Numpad2', 'keypad2', '小键盘 2'], ['Numpad3', 'keypad3', '小键盘 3'],
+    ['Numpad0', 'keypad0', '小键盘 0']
   ]
   key(key: KB_key) {
     return {
@@ -88,18 +60,18 @@ type keymap_value = {
 }
 
 const default_keymap: keymap_value = Object.freeze({
-  input_player1_left: 's',
-  input_player1_right: 'f',
-  input_player1_up: 'e',
-  input_player1_down: 'd',
+  input_player1_left: 'a',
+  input_player1_right: 'd',
+  input_player1_up: 'w',
+  input_player1_down: 's',
 
-  input_player1_a: 'k',
-  input_player1_b: 'j',
-  input_player1_x: 'i',
-  input_player1_y: 'u',
+  input_player1_a: 'keypad2',
+  input_player1_b: 'keypad1',
+  input_player1_x: 'keypad5',
+  input_player1_y: 'keypad4',
 
-  input_player1_select: 'g',
-  input_player1_start: 'h',
+  input_player1_select: 'rshift',
+  input_player1_start: 'enter',
 })
 
 export
