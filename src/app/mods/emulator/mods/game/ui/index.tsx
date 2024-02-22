@@ -10,7 +10,7 @@ const Game = () => {
     ;(async function start_game() {
       const canvas = ref_canvas.current!
       const game = new _Game(canvas)
-      // await game.fullscreen()
+      await game.fullscreen()
       await game.start()
     }())
   }, [])
