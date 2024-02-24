@@ -15,9 +15,9 @@ const Box = styled.button({
   borderRadius: '50%',
 
   transition: '.18s background-color',
-  backgroundColor: css_vars.fc(.066),
+  backgroundColor: '#77777777',
   ':hover': {
-    backgroundColor: css_vars.fc(.088),
+    backgroundColor: '#666666',
   },
 })
 

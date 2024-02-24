@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
 import styled from '@emotion/styled'
+import { css_vars } from 'last.css/utils'
 
 import { Close } from './close'
 
@@ -11,7 +12,7 @@ const Box = styled.div({
   right: 0,
   zIndex: 10,
 
-  // background: css_vars.bc(.6),
+  background: css_vars.bc(.2),
   backdropFilter: 'blur(10px)',
   animation: '.1s fade-in',
 
