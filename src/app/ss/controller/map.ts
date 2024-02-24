@@ -65,13 +65,13 @@ const default_keymap: keymap_value = Object.freeze({
   input_player1_up: 'w',
   input_player1_down: 's',
 
-  input_player1_y: 'o',
-  input_player1_x: 'p',
-  input_player1_b: 'l',
-  input_player1_a: 'semicolon',
+  input_player1_y: 'i',
+  input_player1_x: 'o',
+  input_player1_b: 'k',
+  input_player1_a: 'l',
 
   input_player1_select: 'f',
-  input_player1_start: 'k',
+  input_player1_start: 'j',
 })
 
 export
