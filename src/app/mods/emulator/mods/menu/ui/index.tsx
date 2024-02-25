@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { emulator } from '../../../ss'
 import { show_controller_modal } from '../../../../../ss/controller/modal'
 import { Icon } from './icon'
+import { state_setting } from '../../../../../ss/settings'
 
 export
 const Game_menu = () => {
@@ -45,7 +46,7 @@ const Game_menu = () => {
   }, [])
 
   return <>
-    <Icon
+    {state_setting.menu_shown.useVal() && <Icon
       onClick={open_menu}
       style={{
         position: 'fixed',
@@ -55,7 +56,7 @@ const Game_menu = () => {
         color: '#fff',
         zIndex: 1,
       }}
-    />
+    />}
     <dialog
       className='menu_container'
       ref={ref_dialog}

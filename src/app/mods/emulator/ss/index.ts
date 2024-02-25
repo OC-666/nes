@@ -1,6 +1,7 @@
 import { Nostalgist } from 'nostalgist'
 import { get_rom_file, set_rom_file } from '../../../ss/rom'
 import { keymap } from '../../../ss/controller/map'
+import { state_setting } from '../../../ss/settings'
 
 type Game_status = 'before_running' | 'running' | 'paused' | 'stopped'
 
@@ -47,7 +48,7 @@ class Game {
       element: this._canvas, // 没有 element 就说明没 mount 好
       // resolveCoreJs: ... // 国内加速
       retroarchConfig: {
-        rewind_enable: true, // 回溯
+        rewind_enable: state_setting.rewind_enabled.get(), // 回溯
 
         // 按键映射
         ...keymap_value,

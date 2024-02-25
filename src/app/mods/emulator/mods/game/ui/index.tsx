@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { Game as _Game } from '../../../ss'
+import { state_setting } from '../../../../../ss/settings'
 
 export
 const Game = () => {
@@ -10,7 +11,8 @@ const Game = () => {
     ;(async function start_game() {
       const canvas = ref_canvas.current!
       const game = new _Game(canvas)
-      await game.fullscreen()
+      if (state_setting.fullscreen.get())
+        await game.fullscreen()
       await game.start()
     }())
   }, [])
