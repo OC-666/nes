@@ -3,6 +3,7 @@ import { useSyncExternalStore } from 'react'
 type Listener = () => void
 type setter<Val> = (calc: (old_val: Val) => Val) => void
 
+export
 interface I_state<Val> {
   get: () => Val
   set: setter<Val>
