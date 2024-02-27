@@ -1,7 +1,7 @@
 # 老霸王
 红白机模拟器，[试玩 Flappy Bird](https://oc-666.github.io/nes/?rom=https%3A%2F%2Fraw.githubusercontent.com%2Fretrobrews%2Fnes-games%2Fmaster%2Fflappybird.nes)
 
-+ [x] 免费、无广告
++ [x] 免费、无广告、开源
 + [x] 运行本地 rom
 + [x] 点开（[含 rom 下载链接的链接](https://oc-666.github.io/nes/?rom=https%3A%2F%2Fraw.githubusercontent.com%2Fretrobrews%2Fnes-games%2Fmaster%2Fflappybird.nes)、本地 rom 文件）即玩
 + [x] 支持键盘和手柄
