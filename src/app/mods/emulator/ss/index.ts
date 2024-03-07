@@ -1,5 +1,5 @@
 import { Nostalgist } from 'nostalgist'
-import { get_rom_file, set_rom_file } from '../../../ss/rom'
+import { get_rom_file, set_rom_file, state_rom_info } from '../../../ss/rom'
 import { keymap } from '../../../ss/controller/map'
 import { state_setting } from '../../../ss/settings'
 
@@ -43,12 +43,18 @@ class Game {
     const keymap_value = keymap.get()
     console.log('starting...')
     console.log('keymap', keymap_value)
-    this._game = await Nostalgist.nes({
+    const core = state_rom_info.get()?.core
+    if (!core)
+      throw Error('core should have been set already. https://github.com/OC-666/nes/wiki/%E6%A0%B8%E5%BF%83%E9%80%89%E6%8B%A9')
+    
+    this._game = await Nostalgist.launch({
       rom: get_rom_file()!,
+      core,
       element: this._canvas, // 没有 element 就说明没 mount 好
       // resolveCoreJs: ... // 国内加速
       retroarchConfig: {
         rewind_enable: state_setting.rewind_enabled.get(), // 回溯
+        savestate_thumbnail_enable: true,
 
         // 按键映射
         ...keymap_value,

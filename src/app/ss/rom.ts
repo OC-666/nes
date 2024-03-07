@@ -1,8 +1,17 @@
 import { State_nullable } from '../../common/state/index.ts'
+import { get_core_by_suffix } from '../mods/emulator/ss/cores.ts'
 import { check_and_make_usergesture } from './usergesture.ts'
 
 export
 const rom_file = State_nullable<ROM>(null)
+
+interface I_rom_info {
+  name: string
+  core?: string
+}
+
+export
+const state_rom_info = State_nullable<I_rom_info>(null)
 
 export
 const useHas_rom = () => rom_file.useVal() !== null
@@ -11,8 +20,13 @@ export
 const get_rom_file = () => rom_file.get()
 
 export
-const set_rom_file = (handle: ROM | null) => {
-  rom_file.set(() => handle)
+const set_rom_file = (rom: ROM | null) => {
+  if (rom) {
+    const [name, suffix] = (rom instanceof File ? rom.name : rom.fileName).split('.') as [string, string]
+    const core = get_core_by_suffix(suffix)
+    state_rom_info.set(() => ({ name, core }))
+  }
+  rom_file.set(() => rom)
 }
 
 export
