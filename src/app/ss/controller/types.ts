@@ -32,6 +32,7 @@ type KB_value =
   | 'z' | 'x' | 'c' | 'v'
   | 'b' | 'n' | 'm' | 'period'
 
+  | 'capslock'
   | 'rshift' | 'enter'
   | 'left' | 'right' | 'up' | 'down'
   

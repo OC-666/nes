@@ -55,6 +55,9 @@ type keymap_value = {
   input_player1_x: KB_value
   input_player1_y: KB_value
 
+  input_player1_l: KB_value
+  input_player1_r: KB_value
+
   input_player1_select: KB_value
   input_player1_start: KB_value
 }
@@ -64,6 +67,9 @@ const default_keymap: keymap_value = Object.freeze({
   input_player1_right: 'd',
   input_player1_up: 'w',
   input_player1_down: 's',
+
+  input_player1_l: 'capslock',
+  input_player1_r: 'l',
 
   input_player1_y: 'i',
   input_player1_x: 'o',

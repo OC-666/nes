@@ -6,6 +6,7 @@ const Btn_back = () => {
   const [_, nav] = useLocation()
   return <button
     onClick={() => {
+      // @ts-ignore
       nav(-1)
     }}
   >

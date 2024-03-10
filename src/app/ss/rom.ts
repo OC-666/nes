@@ -12,6 +12,11 @@ interface I_rom_info {
 
 export
 const state_rom_info = State_nullable<I_rom_info>(null)
+export
+function useUnconfirmed_core() { // 有 rom，但未确定游戏机
+  const { name, core } = state_rom_info.useVal()! // 有 rom 就有 info；无 info 时就也不存在 rom；不存在 rom 时，不应使用此 hook
+  return name && !core
+}
 
 export
 const useHas_rom = () => rom_file.useVal() !== null
