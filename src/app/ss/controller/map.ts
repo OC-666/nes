@@ -69,7 +69,7 @@ const default_keymap: keymap_value = Object.freeze({
   input_player1_down: 's',
 
   input_player1_l: 'capslock',
-  input_player1_r: 'l',
+  input_player1_r: 'semicolon',
 
   input_player1_y: 'i',
   input_player1_x: 'o',
