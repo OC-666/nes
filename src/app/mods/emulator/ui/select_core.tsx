@@ -10,7 +10,7 @@ function Select_core() {
     shown={{
       val: true
     }}
-    title='选择游戏机'
+    // title='选择游戏机'
     val={core}
     opts={core_list.map(item => ({ lab: item.emulator, val: item.name }))}
     set={new_v => {
