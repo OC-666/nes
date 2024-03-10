@@ -22,19 +22,20 @@ const Box = styled.div({
   flexDirection: 'column',
 })
 
-type shown = {
+export
+type Shown = {
   val: boolean
-  set: (val: boolean) => void
+  set?: (val: boolean) => void
 }
 
 interface Modal_props {
-  Children: (shown: shown) => ReactNode
-  shown: shown
+  Children: (shown: Shown) => ReactNode
+  shown: Shown
 }
 
 export
 const Modal: FC<Modal_props> = props =>
   props.shown.val && <Box>
-    <Close hide={() => props.shown.set(false)} />
+    {props.shown.set && <Close hide={() => props.shown.set!(false)} />}
     {props.Children(props.shown)}
   </Box>
