@@ -30,7 +30,7 @@ const set_rom_file = (rom: ROM | null) => {
 }
 
 export
-const init_file_on_launch = async () => {
+const init_rom_on_launch = async () => {
   
   /**
    * launching by clicking file
