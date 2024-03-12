@@ -24,8 +24,11 @@ class Game {
     private _canvas: HTMLCanvasElement,
   ) {
     const listen_resize = () => {
-      if (this._status == 'running')
+      console.log('resize listened')
+      if (this._status == 'running' || this._status == 'paused') {
+        console.log('resize')
         this.resize()
+      }
     }
     window.addEventListener('resize', listen_resize)
     this._on_quit.push(() =>
@@ -40,14 +43,18 @@ class Game {
   }
 
   async retrieve_state() {
-    const { state, thumbnail } = await this._game!.saveState()
+    const { state } = await this._game!.saveState()
     return state
 
-    const result = {
-      state: await state.text(),
-      thumbnail: await thumbnail?.text(),
-    }
-    return JSON.stringify(result)
+    // const result = {
+    //   state: await state.text(),
+    //   thumbnail: await thumbnail?.text(),
+    // }
+    // return JSON.stringify(result)
+  }
+  async load_state(state: Blob) {
+    await this._game!.loadState(state)
+    await this._game!.pause() // ! 有时加载后，游戏会马上开始，可能是 nostalgist 或 retroarch 的 assembly 的bug
   }
 
   async start() {

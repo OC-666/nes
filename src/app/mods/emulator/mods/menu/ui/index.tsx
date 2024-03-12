@@ -73,8 +73,18 @@ const Game_menu = () => {
             close_dialog()
           }}
         />
+
         <Menu_item
-          label='保存'
+          label='全屏继续'
+          on_click={async () => {
+            await emulator.game!.fullscreen()
+            emulator.game!.resume()
+            close_dialog()
+          }}
+        />
+
+        <Menu_item
+          label='保存状态'
           on_click={async () => {
             const state = await emulator.game!.retrieve_state()
             const url = URL.createObjectURL(state)
@@ -84,6 +94,21 @@ const Game_menu = () => {
             a.click()
           }}
         />
+        <Menu_item
+          label='加载状态'
+          on_click={async () => {
+            const input = document.createElement('input')
+            input.type = 'file'
+            input.addEventListener('change', async () => {
+              const file = input.files![0]
+              await emulator.game!.load_state(file)
+              emulator.game!.resume()
+              close_dialog()
+            })
+            input.click()
+          }}
+        />
+
         <Menu_item
           label='联机'
           on_click={() => {
