@@ -1,8 +1,10 @@
 import { useRef, useEffect } from 'react'
+
+import { state_rom_info } from '../../../../../ss/rom'
 import { emulator } from '../../../ss'
 import { show_controller_modal } from '../../../../../ss/controller/modal'
-import { Icon } from './icon'
 import { state_setting } from '../../../../../ss/settings'
+import { Icon } from './icon'
 
 export
 const Game_menu = () => {
@@ -73,8 +75,13 @@ const Game_menu = () => {
         />
         <Menu_item
           label='保存'
-          on_click={() => {
-            todo()
+          on_click={async () => {
+            const state = await emulator.game!.retrieve_state()
+            const url = URL.createObjectURL(state)
+            const a = document.createElement('a')
+            a.href = url
+            a.download = state_rom_info.get()!.name + (new Date().getTime()) + '.ocstate'
+            a.click()
           }}
         />
         <Menu_item

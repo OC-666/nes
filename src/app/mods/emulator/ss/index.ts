@@ -39,6 +39,17 @@ class Game {
     return this._status
   }
 
+  async retrieve_state() {
+    const { state, thumbnail } = await this._game!.saveState()
+    return state
+
+    const result = {
+      state: await state.text(),
+      thumbnail: await thumbnail?.text(),
+    }
+    return JSON.stringify(result)
+  }
+
   async start() {
     const keymap_value = keymap.get()
     console.log('starting...')
